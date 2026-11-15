@@ -1,0 +1,26 @@
+STATISTICAL ROBUSTNESS AND SENSITIVITY ANALYSIS
+Student: Campos
+Student ID: TUPM-26-1247
+Random Seed: 261247
+Bootstrap Repetitions: 270
+Selected Features: Feature_109, Feature_228, Feature_269, Feature_472, Feature_553
+Fail Records: 104 | Pass Records: 1463
+
+Mean Difference (Fail - Pass), 95% Percentile CI:
+- Feature_109: AC -0.0003 [-0.0014, 0.0009] rank 4 | MI -0.0000 [-0.0004, 0.0004] rank 5
+- Feature_228: AC 0.0005 [-0.0012, 0.0024] rank 3 | MI 0.0005 [-0.0012, 0.0024] rank 3
+- Feature_269: AC 0.0833 [-0.1511, 0.3229] rank 2 | MI 0.0836 [-0.1508, 0.3232] rank 2
+- Feature_472: AC 0.2331 [-10.5431, 10.3433] rank 5 | MI 0.2313 [-10.5428, 10.3402] rank 4
+- Feature_553: AC 0.4714 [-0.1485, 1.3387] rank 1 | MI 0.3879 [-0.1278, 1.0884] rank 1
+
+Features With Changed Difference Sign: 0 []
+Features With Changed Ranking: 2 ['Feature_109', 'Feature_472']
+Features With Changed CI Conclusion (excludes zero): 0 []
+Largest Change in Mean Difference: Feature_553 (-0.0835, 17.71% of the available-case difference)
+Reproducibility Verified: True
+
+Interpretation Notes:
+- Median imputation fills gaps with the full-dataset median, which pulls both group means toward the overall centre; available-case analysis uses recorded values only.
+- Bootstrap intervals describe sampling variability of the mean difference; they do not identify a cause of failure.
+- The Fail group has only 104 records, so its mean (and the interval) is much less stable than the Pass group's.
+- A feature whose direction, interval conclusion or rank changes between strategies is sensitive to how missing values are handled and should be treated with caution.
